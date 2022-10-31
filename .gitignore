@@ -33,3 +33,6 @@ terraform*
 .terraform/providers/
 .terraform/providers
 
+terraform.tfstate.backup
+
+helm_values/
