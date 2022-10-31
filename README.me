@@ -3,3 +3,9 @@ executed using a the devlab profile in .aws/credentials - Going against the gene
 
 part of : 472041043977  ( sandbox )
 
+Once a new cluster is created execute the following at the command line and
+
+aws eks update-kubeconfig \
+--region af-south-1 \
+--name george-lab \
+--profile devlab

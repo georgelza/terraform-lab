@@ -1,23 +1,23 @@
 # https://github.com/aws-ia/terraform-aws-eks-blueprints
 
 terraform {
-  required_version = ">= 1.0.0"
+  required_version = ">= 1.3.3"
 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 3.72"
-#      version = ">= 4.0"
+#      version = ">= 3.72"
+      version = ">= 4.0"
     }
     kubernetes = {
       source  = "hashicorp/kubernetes"
-      version = ">= 2.10"
-#      version = ">= 2.14.0"
+#      version = ">= 2.10"
+      version = ">= 2.14.0"
     }
     helm = {
       source  = "hashicorp/helm"
-      version = ">= 2.4.1"
-#      version = ">= 2.7.1"
+#      version = ">= 2.4.1"
+      version = ">= 2.7.1"
     }
   }
 }
@@ -40,7 +40,7 @@ provider "kubernetes" {
   token                   = data.aws_eks_cluster_auth.default.token
 
   exec {
-    api_version = "client.authentication.k8s.io/v1alpha1"
+    api_version = "client.authentication.k8s.io/v1"
   #     api_version = "client.authentication.k8s.io/v1beta1"
     command     = "aws"
     # This requires the awscli to be installed locally where Terraform is executed
@@ -55,7 +55,7 @@ provider "helm" {
     token                   = data.aws_eks_cluster_auth.default.token
 
     exec {
-      api_version = "client.authentication.k8s.io/v1alpha1"
+      api_version = "client.authentication.k8s.io/v1"
       command     = "aws"
       # This requires the awscli to be installed locally where Terraform is executed
       args = ["eks", "get-token", "--cluster-name", module.eks_blueprints.eks_cluster_id, "--profile", local.profile]
