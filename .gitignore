@@ -35,4 +35,4 @@ terraform*
 
 terraform.tfstate.backup
 
-helm_values/
+helm_values/*
